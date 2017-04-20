@@ -25,4 +25,4 @@
 
   6- Si todo ha funcionado correctamente, debe poderse correr ```rails server``` y la aplicación comenzará normalmente
 
-<b>Nota: </b> Este programa necesita de la versión de NodeJS especificada en el archivo .nodenv. Para el manejo de versiones de Node, se recomienda el uso de [nodenv](https://github.com/nodenv/nodenv).
+<b>Nota: </b> Este programa necesita de la versión de NodeJS especificada en el archivo .node-version. Para el manejo de versiones de Node, se recomienda el uso de [nodenv](https://github.com/nodenv/nodenv).
