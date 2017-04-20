@@ -1,0 +1,26 @@
+%h1 Registro de Desempeños
+%table{:border => "2"}
+  %tr
+    %th Nombres
+    %th Apellidos
+    %th Nota
+    %th Faltas
+    %th{:colspan => "3"} Asignados
+    %th Desempeños
+  - @estudiantes.each do |estudiante|
+    %tr
+      %td= estudiante.nombres
+      %td= estudiante.apellidos
+      %td= estudiante.nota
+      %td= estudiante.faltas
+      %td= button_to "Agregar" ,{:controller => :configurar_desempenos,         |
+          :action => 'show', :id => estudiante.desempeno_id}, :method => "get" |
+      %td= button_to "Ver" , {:controller => :configurar_desempenos,             |
+          :action => 'edit', :id => estudiante.desempeno_id }, :method => "get" |
+      %td= button_to "Editar" , {:controller => :configurar_desempenos,                                                    |
+          :action => 'destroy', :id => estudiante.desempeno_id }, :method => "delete", data: { confirm: 'Are you sure?' } |
+      - id=estudiante.desempeno_id
+      - tipo= Desempeno.find(id)
+      %td= tipo.descripcion
+  a
+%h5{:style => "text-align: center"}= will_paginate (@estudiantes)

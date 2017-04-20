@@ -1,0 +1,8 @@
+= link_to "Atrás", root_path
+
+= simple_form_for @desempeno do |f|
+  .form-group
+    = f.input :titulo, label: "Título", input_html: {class: "form-control"}
+  .form-group
+    = f.input :descripcion, as: :text, label: "Descripción", input_html: {class: "form-control"}
+  = f.button :submit, class: "btn btn-primary"

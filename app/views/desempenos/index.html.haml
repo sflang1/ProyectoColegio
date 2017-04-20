@@ -1,0 +1,17 @@
+%h1 Configuración de Desempeños
+
+= link_to "Nuevo" , new_desempeno_path()
+
+%table.table.table-bordered
+  %tr
+    %th Titulo
+    %th Descripcion
+    %th{:colspan => "3"} Acciones
+  - @desempenos.each do |desempeno|
+    %tr
+      %td= desempeno.titulo
+      %td= desempeno.descripcion
+      %td= button_to "Detalles" , desempeno_path(desempeno), method: :get, class: "btn btn-default"
+      %td= button_to "Editar" , edit_desempeno_path(desempeno), method: :get, class: "btn btn-default"
+      %td= button_to "Eliminar" , desempeno_path(desempeno), :method => "delete", class: "btn btn-default", data: { confirm: 'Are you sure?' }
+%h5{:style => "text-align: center"}= will_paginate (@desempenos)
