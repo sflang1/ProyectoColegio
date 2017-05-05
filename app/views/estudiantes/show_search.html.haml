@@ -1,0 +1,21 @@
+%h2 Buscar estudiantes
+
+= simple_form_for :search, url: search_estudiante_path(), remote: true do |f|
+  = f.input :grupo_id, as: :select, collection: @grupo_collection, include_blank: false, input_label: "Grupo"
+  = f.input :grado_id, as: :select, collection: @grado_collection, include_blank: false, input_label: "Grado"
+  = f.button :submit, value: "Buscar"
+
+%table.table.table-bordered#table
+  %thead
+    %th Nombre
+    %th Grupo
+    %th Grado
+    %th Faltas
+  %tbody
+  - @estudiantes.each do |estudiante|
+    %tr
+      %td= estudiante.nombre_completo
+      %td= estudiante.grupo.nombre
+      %td= estudiante.grado.nombre
+      %td= estudiante.faltas
+%h5{:style => "text-align: center"}= will_paginate (@estudiantes)

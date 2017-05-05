@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-
-  get 'registro_calificaciones/index'
   resources :desempenos
 
-  get 'configurar_desempenos/index'
+  resources :estudiantes
+  get "show_search_estudiante" => "estudiantes#show_search"
+  post "search_estudiante" => "estudiantes#search"
 
-  get 'welcome/index'
-
-  root 'desempenos#index'
+  root 'dashboard#index'
 end

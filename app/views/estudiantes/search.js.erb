@@ -1,0 +1,7 @@
+table = $('#table');
+$('#table > tbody').empty();
+<% @estudiantes.each do |estudiante| %>
+  // var markup = "<tr><td><%= estudiante.nombre_completo%></td><td><%= estudiante.grupo.nombre%></td><td><%= estudiante.grado.nombre%></td><td><%= estudiante.faltas%></td><td><%= button_to "Detalles" , estudiante_path(estudiante), method: :get, class: "btn btn-default"%></td><td><%= button_to "Editar" , edit_estudiante_path(estudiante), method: :get, class: "btn btn-default"%></td><td><%= button_to "Eliminar" , estudiante_path(estudiante), :method => "delete", class: "btn btn-default", data: { confirm: 'Are you sure?' }%></td></tr>";
+  var markup = "<tr><td><%= estudiante.nombre_completo%></td><td><%= estudiante.grupo.nombre%></td><td><%= estudiante.grado.nombre%></td><td><%= estudiante.faltas%></td></tr>";
+  $('#table').append(markup);
+<% end %>
